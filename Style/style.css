@@ -20,7 +20,8 @@
 /* comman styel */
 
 body,
-.homePage {
+.homePage,
+.gamebox {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -71,3 +72,25 @@ body {
 }
 
 /* style for Game page */
+
+.board {
+  width: 24rem;
+  height: 24rem;
+  border: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+.box {
+  width: 8rem;
+  border: 0.3em solid var(--ourBlack);
+}
+
+@media screen and (max-width: 786px) {
+  .board {
+    width: 22rem;
+    height: 22rem;
+  }
+  .box {
+    width: 7.3rem;
+  }
+}
