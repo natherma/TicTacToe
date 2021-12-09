@@ -82,9 +82,55 @@ body {
 }
 .box {
   width: 8rem;
-  border: 0.3em solid var(--ourBlack);
+  border: 5px solid var(--ourBlack);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 7rem;
+  line-height: 0;
 }
 
+.x {
+  color: var(--ourRed);
+  pointer-events: none;
+}
+
+.o {
+  color: var(--ourBlue);
+  pointer-events: none;
+}
+
+.control {
+  display: flex;
+}
+
+.control > div {
+  margin: 2rem;
+  border-radius: 10px;
+  padding: 0.5em 1.5rem;
+  font-size: 1rem;
+  font-weight: bolder;
+}
+
+.xturn {
+  border: 0.2rem solid var(--ourRed);
+}
+
+.xturn.on {
+  background-color: var(--ourRed);
+  color: var(--ourWhite);
+}
+
+.oturn.on {
+  background-color: var(--ourBlue);
+  color: var(--ourWhite);
+}
+
+.oturn {
+  border: 0.2rem solid var(--ourBlue);
+}
+
+/* style for smaller screen */
 @media screen and (max-width: 786px) {
   .board {
     width: 22rem;
