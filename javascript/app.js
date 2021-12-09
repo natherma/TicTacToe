@@ -1,12 +1,4 @@
-let firstBox = document.getElementById("one");
-let secondBox = document.getElementById("two");
-let thirdBox = document.getElementById("three");
-let fourthtBox = document.getElementById("four");
-let fifthBox = document.getElementById("five");
-let sixthBox = document.getElementById("six");
-let seventhBox = document.getElementById("seven");
-let eightBox = document.getElementById("eight");
-let ninthBox = document.getElementById("nine");
+// identifiers
 let allBoxs = document.querySelectorAll('.box');
 let xTurn = document.querySelector('.xturn');
 let oTurn = document.querySelector('.oturn');
@@ -14,24 +6,76 @@ let board = document.querySelector('.board');
 let players = ["X","O"];
 
 // default turn
-xTurn.classList.add('on');
+let defaultTurn = prompt("Please select first player to play (X or O)");
+
+if(defaultTurn==="x")
+{
+    xTurn.classList.add('on');
+}
+else
+{
+    oTurn.classList.add('on');
+}
+
+
 
 
 // check win function
 let checkWin = () => 
 {
-
-}
-
-// check drow function
-let draw = () => 
-{
-
+    setTimeout(()=>
+    {
+        if((allBoxs[0].innerText!==""&&allBoxs[1].innerText!==""&&allBoxs[2].innerText!=="")&&(allBoxs[0].innerText===allBoxs[1].innerText&&allBoxs[1].innerText===allBoxs[2].innerText))
+        {        
+            alert(`${allBoxs[0].innerText} is winner`);
+            window.location.reload();   
+        }
+        else if((allBoxs[3].innerText!==""&&allBoxs[4].innerText!==""&&allBoxs[5].innerText!=="")&&(allBoxs[3].innerText===allBoxs[4].innerText&&allBoxs[4].innerText===allBoxs[5].innerText))
+        {        
+            alert(`${allBoxs[3].innerText} is winner`);
+            window.location.reload();   
+        }
+        else if((allBoxs[6].innerText!==""&&allBoxs[7].innerText!==""&&allBoxs[8].innerText!=="")&&(allBoxs[6].innerText===allBoxs[7].innerText&&allBoxs[7].innerText===allBoxs[8].innerText))
+        {        
+            alert(`${allBoxs[6].innerText} is winner`);
+            window.location.reload();   
+        }
+        else if((allBoxs[0].innerText!==""&&allBoxs[3].innerText!==""&&allBoxs[6].innerText!=="")&&(allBoxs[0].innerText===allBoxs[3].innerText&&allBoxs[3].innerText===allBoxs[6].innerText))
+        {        
+            alert(`${allBoxs[0].innerText} is winner`);
+            window.location.reload();   
+        }
+        else if((allBoxs[1].innerText!==""&&allBoxs[4].innerText!==""&&allBoxs[7].innerText!=="")&&(allBoxs[1].innerText===allBoxs[4].innerText&&allBoxs[4].innerText===allBoxs[7].innerText))
+        {        
+            alert(`${allBoxs[1].innerText} is winner`);
+            window.location.reload();   
+        }
+        else if((allBoxs[2].innerText!==""&&allBoxs[5].innerText!==""&&allBoxs[8].innerText!=="")&&(allBoxs[2].innerText===allBoxs[5].innerText&&allBoxs[5].innerText===allBoxs[8].innerText))
+        {        
+            alert(`${allBoxs[2].innerText} is winner`);   
+        }
+        else if((allBoxs[0].innerText!==""&&allBoxs[4].innerText!==""&&allBoxs[8].innerText!=="")&&(allBoxs[0].innerText===allBoxs[4].innerText&&allBoxs[4].innerText===allBoxs[8].innerText))
+        {        
+            alert(`${allBoxs[0].innerText} is winner`);
+            window.location.reload();   
+        }
+        else if((allBoxs[2].innerText!==""&&allBoxs[4].innerText!==""&&allBoxs[6].innerText!=="")&&(allBoxs[2].innerText===allBoxs[4].innerText&&allBoxs[4].innerText===allBoxs[6].innerText))
+        {        
+            alert(`${allBoxs[2].innerText} is winner`);
+            window.location.reload();   
+        }
+        else if(allBoxs[0].innerText!==""&&allBoxs[1].innerText!==""&&allBoxs[2].innerText!==""&&allBoxs[3].innerText!==""&&allBoxs[4].innerText!==""&&allBoxs[5].innerText!==""&&allBoxs[6].innerText!==""&&allBoxs[7].innerText!==""&&allBoxs[8].innerText!=="")
+        {
+            alert(`Draw`);
+            window.location.reload();
+        }
+        
+        
+    },100);
 }
     
 
-
-
+// Game logic
 allBoxs.forEach((box)=>
 {
     
@@ -42,7 +86,7 @@ allBoxs.forEach((box)=>
         {
         turn = players[0];    
         }
-        else if(oTurn.classList.contains('on'))
+        else 
         {
             turn = players[1];
         }
@@ -70,8 +114,8 @@ allBoxs.forEach((box)=>
             oTurn.classList.remove('on');
             xTurn.classList.add('on');
         }
-        
+        checkWin();    
     })
-
+    
 })
 
